@@ -1,0 +1,70 @@
+<button mat-button (click)="isLinear=!isLinear">切換 Linear 狀態: {{isLinear}}</button>
+
+<mat-vertical-stepper [linear]="isLinear">
+  <mat-step [stepControl]="qq">
+    <form [formGroup]="qq">
+      <ng-template matStepLabel>
+        <u>個人資訊</u>
+        <small>表單狀態: {{qq.status}}</small>
+      </ng-template>
+      <h4>提供個人資訊</h4>
+      <mat-form-field>
+        <input type="text" name="name" matInput placeholder="姓名" formControlName="name" required>
+      </mat-form-field>
+    </form>
+
+    <button mat-raised-button matStepperNext color="primary"> 下一步</button>
+  </mat-step>
+  <mat-step [stepControl]="ww">
+    <form [formGroup]="ww">
+      <ng-template matStepLabel>
+        <u>個人資訊</u>
+      </ng-template>
+      <h4>提供個人資訊</h4>
+      <mat-form-field>
+        <input type="text" name="name" matInput placeholder="姓名" formControlName="name" required>
+      </mat-form-field>
+    </form>
+    <button mat-raised-button matStepperPrevious > 上一步</button>
+    <button mat-button matStepperNext> 下一步</button>
+  </mat-step>
+  <mat-step [stepControl]="ee">
+    <form [formGroup]="ee">
+      <ng-template matStepLabel>
+        <u>個人資訊</u>
+      </ng-template>
+      <h4>提供個人資訊</h4>
+      <mat-form-field>
+        <input type="text" name="name" matInput placeholder="姓名" formControlName="name" required>
+      </mat-form-field>
+    </form>
+    <button mat-raised-button matStepperPrevious > 上一步</button>
+    <button mat-button matStepperNext> 下一步</button>
+  </mat-step>
+  <mat-step [stepControl]="rr">
+    <form [formGroup]="rr">
+      <ng-template matStepLabel>
+        <u>個人資訊</u>
+      </ng-template>
+      <h4>提供個人資訊</h4>
+      <mat-form-field>
+        <input type="text" name="name" matInput placeholder="姓名" formControlName="name" required>
+      </mat-form-field>
+    </form>
+    <button mat-raised-button matStepperPrevious > 上一步</button>
+    <button mat-button matStepperNext> 下一步</button>
+  </mat-step>
+  <mat-step [stepControl]="tt">
+    <form [formGroup]="tt">
+      <ng-template matStepLabel>
+        <u>個人資訊</u>
+      </ng-template>
+      <h4>提供個人資訊</h4>
+      <mat-form-field>
+        <input type="text" name="name" matInput placeholder="姓名" formControlName="name" required>
+      </mat-form-field>
+    </form>
+    <button mat-raised-button matStepperPrevious > 上一步</button>
+    <button mat-button matStepperNext> 下一步</button>
+  </mat-step>
+</mat-vertical-stepper>

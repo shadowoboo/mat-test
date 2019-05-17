@@ -1,0 +1,127 @@
+<form action="" [formGroup]="nestForm">
+  <h2>This is the Nest Form Testing</h2>
+  <mat-vertical-stepper [linear]="true">
+    <mat-step formGroupName="name" [stepControl]="nestForm.get('name')" optional>
+      <ng-template matStepLabel>
+        <mat-icon>person</mat-icon><span>Name</span>
+      </ng-template>
+      <h4>keyin the name</h4>
+      <mat-form-field>
+        <input type="text" name="firstname" matInput placeholder="first name" formControlName="firstname" required
+          minlength="10">
+        <!-- <mat-hint>here to keyin the first name</mat-hint> -->
+        <mat-error *ngIf="nestForm.get('name').get('firstname').hasError('required')">hey hey please write down the
+          first name</mat-error>
+        <mat-error *ngIf="nestForm.get('name').get('firstname').hasError('minlength')">至少輸入10個字吧！</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input type="text" name="lastname" matInput placeholder="last name" formControlName="lastname" required>
+      </mat-form-field>
+      <div class="btnGroup">
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-raised-button color="primary" matStepperNext>Next</button>
+      </div>
+    </mat-step>
+
+    <mat-step formGroupName="info" [stepControl]="nestForm.get('info')" editable="false">
+      <ng-template matStepLabel>
+        <mat-icon>info</mat-icon><span>INFO</span>
+      </ng-template>
+      <h4>add some information</h4>
+
+      <div [ngStyle]="{'margin.px': 10}">
+        <h5>addr here</h5>
+        <mat-form-field color="accent">
+          <input type="text" name="addr" matInput  formControlName="addr"
+            required>
+          <mat-placeholder><mat-icon>explore</mat-icon>地址吧導航吧應該吧</mat-placeholder>
+          <small matPrefix>前面</small>
+          <small matSuffix>後面</small>
+        </mat-form-field>
+      </div>
+
+      <div [ngStyle]="{'margin.px': 10}" (click)=aa()>
+        <h5>國家</h5>
+        <mat-form-field>
+          <input type="text" name="country" matInput placeholder="國家" formControlName="country"
+            [matAutocomplete]="countries" />
+        </mat-form-field>
+      </div>
+
+      <div [ngStyle]="{'margin.px': 10}">
+        <h5>city here</h5>
+        <mat-form-field>
+          <input type="text" name="city" matInput placeholder="city city city" formControlName="city" required>
+        </mat-form-field>
+      </div>
+
+      <div class="btnGroup">
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-raised-button color="primary" matStepperNext>Next</button>
+      </div>
+    </mat-step>
+
+    <mat-step formGroupName="com" [stepControl]="nestForm.get('com')">
+      <ng-template matStepLabel>
+        <mat-icon>computer</mat-icon><span>COM</span>
+      </ng-template>
+      <h4>check the Computer</h4>
+
+      <div [ngStyle]="{'margin.px': 10}">
+        <h5>cpu</h5>
+        <mat-form-field>
+          <input type="text" name="cpu" matInput placeholder="cpu" formControlName="cpu" required>
+        </mat-form-field>
+      </div>
+
+      <div [ngStyle]="{'margin.px': 10}">
+        <h5>gpu</h5>
+        <mat-form-field>
+          <input type="text" name="gpu" matInput placeholder="gpu" formControlName="gpu" required>
+        </mat-form-field>
+      </div>
+
+      <div [ngStyle]="{'margin.px': 10}">
+        <h5>ram</h5>
+        <mat-form-field>
+          <mat-select placeholder="多大呢? 我說ram..." formControlName="ram" name="ram" multiple #tram>
+            <mat-select-trigger>
+              你的大小:  {{ tram?.value  }}
+            </mat-select-trigger>
+
+            <!-- <mat-option [value]="undefined">N/A</mat-option> -->
+
+            <mat-optgroup *ngFor="let rampapa of rams;let i=index" [label]="'group' + i">
+
+
+              <mat-option *ngFor="let ram of rampapa; let j=index" [value]="ram" [disabled]="i===1 && j===2">
+                {{ram}}
+              </mat-option>
+
+            </mat-optgroup>
+
+          </mat-select>
+          <mat-hint align="end">
+            已輸入： {{ tram?.value?.length || 0 }}
+          </mat-hint>
+          <!-- <input type="text" name="ram" matInput placeholder="ram" formControlName="ram" required> -->
+        </mat-form-field>
+      </div>
+
+      <div class="btnGroup">
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-raised-button color="primary" matStepperNext>Next</button>
+      </div>
+    </mat-step>
+
+  </mat-vertical-stepper>
+</form>
+
+
+
+
+<mat-autocomplete #countries="matAutocomplete">
+  <mat-option *ngFor="let country of countries$ | async" [value]="country.name">
+    {{ country.name }}
+  </mat-option>
+</mat-autocomplete>

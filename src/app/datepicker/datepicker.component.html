@@ -1,0 +1,8 @@
+<mat-form-field>
+  <input matInput [matDatepicker]="birthdayPicker"
+    placeholder="生日喔喔" [min]="minDate" [max]="maxDate"
+    [matDatepickerFilter]="dayFilter">
+  <mat-datepicker-toggle matSuffix [for]="birthdayPicker"></mat-datepicker-toggle>
+  <!-- <button matSuffix [matDatepickerToggle]="birthdayPicker"></button> -->
+  <mat-datepicker #birthdayPicker touchUi [startAt]="startDate"></mat-datepicker>
+</mat-form-field>
