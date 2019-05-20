@@ -1,0 +1,83 @@
+<div class="checkBoxRadioSlider">
+  <form action="" [formGroup]="crsForm">
+    <h2>Check Box 燈燈燈</h2>
+    <mat-checkbox formControlName="allLight" [indeterminate]="indeterminateSelectedLight"
+      (change)="checkAllChange($event)">ALL</mat-checkbox>
+    <label for="">
+      <mat-checkbox formControlName="groundLight" [ngClass]="{highlightIcon: this.crsForm.value.groundLight}"
+        (click)="this.countAdd()" (change)="lightForChange()">
+        <mat-icon>highlight</mat-icon>
+        clickTime: {{this.count}} 落地檯燈 {{this.crsForm.value.groundLight|json}}
+      </mat-checkbox>
+    </label>
+    <label for="">
+      <mat-checkbox formControlName="windowLight" color="warn" (change)="lightForChange()">
+        <mat-icon>highlight</mat-icon>窗燈
+      </mat-checkbox>
+    </label>
+    <label for="">
+      <mat-checkbox formControlName="topLight" labelPosition="before" (change)="lightForChange()">
+        <mat-icon>highlight</mat-icon>頂燈
+      </mat-checkbox>
+    </label>
+
+    <div class="radioGroup">
+      <h2>Radio Group 1 的啦 : {{this.crsForm.value.rg1}}</h2>
+      <mat-radio-group formControlName="rg1">
+        <mat-radio-button value="value1">Option1</mat-radio-button>
+        <mat-radio-button value="value2">Option2</mat-radio-button>
+      </mat-radio-group>
+    </div>
+    <div class="radioGroup">
+      <h2>Radio Group 2 的啦 : {{this.crsForm.value.rg2}}</h2>
+      <mat-radio-group formControlName="rg2">
+        <mat-radio-button value="1" color="warn">Option1</mat-radio-button>
+        <mat-radio-button value="2">Option2</mat-radio-button>
+      </mat-radio-group>
+    </div>
+
+
+    <div class="slideToggle">
+      <h2>你要不要吃哈密瓜</h2>
+      <mat-slide-toggle formControlName="slide1" color="primary">
+        <mat-icon>toggle_on</mat-icon> 我看你一臉高尚
+      </mat-slide-toggle>
+      <mat-slide-toggle formControlName="slide2" color="warn">我問你</mat-slide-toggle>
+      <mat-slide-toggle formControlName="slide3" color="accent">你不明白偉大的重量</mat-slide-toggle>
+    </div>
+
+    <div class="slider" >
+      <h2>Slider 顏色來歐</h2>
+      <div>
+        <span>Red</span>
+        <mat-slider min="0" max="255" step="1"  formControlName="redSlider" thumbLabel></mat-slider>
+      </div>
+      <div>
+        <span>Green</span>
+        <mat-slider min="0" max="255" step="50"  formControlName="greenSlider" [tickInterval]="1" thumbLabel></mat-slider>
+      </div>
+      <div>
+        <span>Blue</span>
+        <mat-slider min="0" max="255" step="1"  formControlName="blueSlider" invert></mat-slider>
+      </div>
+      <div>
+          <span>Alpha</span>
+          <mat-slider min="0" max="1" step="0.01"  formControlName="alphaSlider" vertical></mat-slider>
+      </div>
+      <div>
+        <h3>R: {{selectedRed}}, G: {{selectedGreen}}, B: {{selectedBlue}} , Alpha: {{selectedAlpha}}</h3>
+      </div>
+      <div class="resultColor" style="width: 50px; height: 50px; border: 1px solid #000"
+      [ngStyle]="{background: selectedColorStyle}">
+
+      </div>
+    </div>
+
+
+
+
+  </form>
+
+
+
+</div>

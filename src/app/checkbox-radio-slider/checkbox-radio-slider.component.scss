@@ -1,0 +1,40 @@
+.highlightIcon{
+  // color: pink;
+  // font-size: 10px;
+  background-color: #faf;
+}
+
+
+input[type="checkbox"]:checked{
+  background-color: #ffa;
+}
+
+label:checked{
+  background-color: #aff;
+}
+
+.mat-checkbox .mat-icon{
+  background-color: #ccc;
+}
+
+
+.mat-radio-group{
+  background-color: #ccc;
+  .mat-radio-button{
+    margin: 0 10px;
+  }
+}
+
+.mat-slide-toggle{
+  padding: 10px;
+  box-shadow: #666 0px 0px 0px 2px;
+  background-color: #fff;
+  position: relative;
+  transition: transform 0.1s;
+
+  &:hover{
+    transition: transform 0.3s;
+    transform: scale(1.2);
+    z-index: 10;
+  }
+}

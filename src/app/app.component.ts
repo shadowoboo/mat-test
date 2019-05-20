@@ -30,15 +30,15 @@ export class AppComponent {
 
   title = 'mat-test';
 
+
+  @ViewChild(MatRipple) ripple: MatRipple;
+
   toggleSideNav(sideNav: MatSidenav) {
     sideNav.toggle().then((result: MatDrawerToggleResult) => {
       console.log(result);
       console.log(`選單狀態：${result}`);
     });
   }
-
-
-  @ViewChild(MatRipple) ripple: MatRipple;
 
   triggerRipple() {
     const p1 = this.ripple.launch(0, 0, { color: '#ff1111', centered: false, persistent: true, radius: 400 });

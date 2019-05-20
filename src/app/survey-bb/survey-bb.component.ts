@@ -9,7 +9,7 @@ import 'rxjs-compat';
 
 // import { Observable, Subject, ReplaySubject, from, of, range } from 'rxjs';
 // import { map, filter, switchMap } from 'rxjs/operators';
-// import 'rxjs';
+import 'rxjs';
 // import { shareReplay } from 'rxjs/operators';
 /**
  *  rxjs 目前交叉測試後只能引入一支 rxjs-compat 才正常
