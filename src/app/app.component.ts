@@ -1,6 +1,8 @@
 import { Component, ViewChild } from '@angular/core';
-import { MatIconRegistry, MatRipple, MatSidenav, MatDrawerToggleResult } from '@angular/material';
+import { MatIconRegistry, MatRipple, MatSidenav, MatDrawerToggleResult, MatDialog, MatDialogRef } from '@angular/material';
 import { DomSanitizer } from '@angular/platform-browser';
+import { AddPostDialogComponent } from './add-post-dialog/add-post-dialog.component';
+import { disableBindings } from '@angular/core/src/render3';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +11,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 })
 export class AppComponent {
 
-  constructor(private matIconRegistry: MatIconRegistry, private domSanitizer: DomSanitizer) {
+  constructor(private matIconRegistry: MatIconRegistry, private domSanitizer: DomSanitizer, public dialog: MatDialog) {
 
     this.matIconRegistry.addSvgIconInNamespace(
       'custom-svg2',
@@ -25,6 +27,15 @@ export class AppComponent {
 
     this.matIconRegistry.registerFontClassAlias('fontawesome', 'fa');
     // this.matIconRegistry.registerFontClassAlias('fontawesome','');
+
+    this.dialog.afterAllClosed.subscribe(() => {
+      console.log(`已經沒有 dialog 了`);
+    });
+
+    this.dialog.afterOpen.subscribe((dialogRef: MatDialogRef<any>) => {
+      console.log(`新的 dialog 已開啟: ${dialogRef.id}`);
+      console.log(`目前已開啟: ${this.dialog.openDialogs.length} 個 dialog 了`);
+    });
   }
 
 
@@ -33,10 +44,11 @@ export class AppComponent {
 
   @ViewChild(MatRipple) ripple: MatRipple;
 
+
   toggleSideNav(sideNav: MatSidenav) {
     sideNav.toggle().then((result: MatDrawerToggleResult) => {
-      console.log(result);
-      console.log(`選單狀態：${result}`);
+      // console.log(result);
+      // console.log(`選單狀態：${result}`);
     });
   }
 
@@ -78,4 +90,15 @@ export class AppComponent {
   closed() {
     alert(`close`);
   }
+
+  showAddPostDialog() {
+    this.dialog.open(AddPostDialogComponent,{
+      data:{
+        title:this.title,
+      },
+    });
+  }
+
+
+
 }

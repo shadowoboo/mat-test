@@ -1,0 +1,29 @@
+<h2 mat-dialog-title>這是標題，維持最上層顯示</h2>
+
+
+<mat-dialog-content class="post-form">
+  <mat-form-field>
+    <input matInput placeholder="標題" [value]="title" />
+  </mat-form-field>
+  <mat-form-field>
+    <textarea matInput placeholder="文章內容" rows="3"></textarea>
+  </mat-form-field>
+  <p>條款01</p>
+  <p>條款02</p>
+  <p>條款02</p>
+  <p>條款02</p>
+  <p>條款02</p>
+  <p>條款02</p>
+  <p>條款02</p>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro amet corrupti praesentium ipsam perspiciatis, sit sequi, obcaecati, sint assumenda corporis aliquam provident voluptatem unde tenetur! Inventore similique nostrum at illo praesentium consequuntur, quam ad neque. Modi adipisci voluptatum nemo cum magni aliquam inventore consequuntur beatae magnam, numquam id dolores neque culpa enim, dolorum illo doloremque quidem, sint distinctio. Quas quasi perspiciatis expedita sint nobis animi laborum consectetur veritatis id possimus qui impedit cum neque in dolorem, eveniet dolorum rerum fugit iusto accusamus vitae sed voluptatum amet. Quo quam eos dicta, deserunt reiciendis beatae quisquam illum! Pariatur consectetur earum neque quae. Exercitationem nemo iure odio, nobis doloribus voluptas nulla. Doloribus tenetur quos recusandae earum consectetur. Reprehenderit, totam perspiciatis doloremque accusantium sequi temporibus minus unde. Corrupti beatae at dicta, quas vel odio est aliquam qui? Eius veniam fuga nesciunt perferendis quis, maxime dolore tempora repudiandae, corporis, eligendi dicta obcaecati sint! Numquam reprehenderit voluptatem exercitationem ullam, blanditiis expedita neque assumenda hic reiciendis, consectetur laborum a eaque cupiditate consequuntur fugiat. Quibusdam architecto deleniti mollitia sequi, repellendus quos aliquam harum placeat dolorum beatae aperiam optio at, qui id non esse praesentium animi vel assumenda nostrum adipisci fuga illum. Eos natus, nobis autem eaque dolorem vitae aperiam officia veniam est unde delectus dolore aliquid itaque nemo necessitatibus perferendis ipsum vero amet dolor nisi architecto quae? Fuga illum alias suscipit at molestias sint iure exercitationem debitis accusamus labore obcaecati ad asperiores facilis ipsa similique, deserunt, quas sapiente adipisci voluptates non enim aliquid culpa eaque. Dolorum ut deserunt itaque magnam cum eum, optio fugiat dolor quibusdam consequuntur, ducimus ad? Sint doloremque laudantium corrupti, cumque provident quaerat vitae veritatis! Esse cupiditate adipisci soluta qui sapiente libero placeat eaque, corporis assumenda laudantium veritatis nostrum unde! Sit in blanditiis non vero praesentium. Nihil neque accusamus nisi omnis quo velit fugit est beatae sed illum magni repellendus voluptates earum, rem excepturi deleniti! Et dolorem expedita ullam sunt repellat illum, sint, totam provident consequuntur perferendis praesentium fuga necessitatibus omnis dolores atque. Provident ad, deserunt culpa voluptas qui itaque illum optio, sapiente modi officiis nesciunt architecto voluptate quasi tempore? Recusandae, autem! Voluptatem officiis est voluptatum unde suscipit corporis, praesentium quod beatae libero et neque quo magni id, tempore harum quidem cumque aperiam fugit explicabo nostrum repellendus minima perspiciatis atque maiores? Dicta laudantium quidem ad quis perspiciatis, nam saepe possimus similique repellendus expedita asperiores autem fuga voluptate deleniti numquam nobis reprehenderit alias consequatur officiis eum.</p>
+  ...
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button mat-button color="primary" (click)="openDialogTemp()">發表</button>
+  <button mat-button mat-dialog-close color="warn">取消</button>
+</mat-dialog-actions>
+
+<ng-template #dialogByTemplate top='0px'>
+    <h2 mat-dialog-title>這是 template 版的 dialog {{title}}</h2>
+</ng-template>

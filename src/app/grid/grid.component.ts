@@ -6,7 +6,42 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./grid.component.scss']
 })
 export class GridComponent implements OnInit {
-
+  progress=50;
+  buf:any;
+  posts$=[
+    {
+      title:'aaaa',
+      subtitle:'sub-aaa'
+    },
+    {
+      title:'bbb',
+      subtitle:'sub-aaa'
+    },
+    {
+      title:'aaaa',
+      subtitle:'sub-aaa'
+    },
+    {
+      title:'bbb',
+      subtitle:'sub-aaa'
+    },
+    {
+      title:'aaaa',
+      subtitle:'sub-aaa'
+    },
+    {
+      title:'bbb',
+      subtitle:'sub-aaa'
+    },
+    {
+      title:'aaaa',
+      subtitle:'sub-aaa'
+    },
+    {
+      title:'bbb',
+      subtitle:'sub-aaa'
+    },
+  ]
   constructor() { }
 
   ngOnInit() {

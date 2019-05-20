@@ -89,7 +89,7 @@ export class CheckboxRadioSliderComponent implements OnInit {
     return this.crsForm.get('alphaSlider').value;
   }
   get selectedColorStyle() {
-    console.log(`rgba(${this.selectedRed},${this.selectedGreen},${this.selectedBlue},${this.selectedAlpha})`);
+    // console.log(`rgba(${this.selectedRed},${this.selectedGreen},${this.selectedBlue},${this.selectedAlpha})`);
 
     return `rgb(${this.selectedRed},${this.selectedGreen},${this.selectedBlue},${this.selectedAlpha})`;
   }
